@@ -1,3 +1,5 @@
+import './mountLightrays.jsx';
+
 // 0. THEME & SIDEBAR TOGGLE
 function toggleTheme() {
     document.body.classList.toggle('light-mode');

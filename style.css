@@ -23,26 +23,31 @@ table tr,
     --font-ui: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-mono: 'IBM Plex Mono', 'JetBrains Mono', 'Fira Code', monospace;
     /* Font sizes — bumped up for readability */
-    --text-xs:   0.8125rem;   /* 13px — micro labels */
-    --text-sm:   0.9375rem;   /* 15px — body/nav */
-    --text-base: 1.0625rem;   /* 17px — default text */
-    --text-lg:   1.1875rem;   /* 19px — card labels */
-    --text-xl:   1.375rem;    /* 22px — secondary headings */
-    --text-2xl:  1.625rem;    /* 26px — card values */
-    --text-3xl:  2rem;        /* 32px — primary KPIs */
-    --text-4xl:  2.5rem;      /* 40px — hero numbers */
+    --text-xs: 0.8125rem;
+    /* 13px — micro labels */
+    --text-sm: 0.9375rem;
+    /* 15px — body/nav */
+    --text-base: 1.0625rem;
+    /* 17px — default text */
+    --text-lg: 1.1875rem;
+    /* 19px — card labels */
+    --text-xl: 1.375rem;
+    /* 22px — secondary headings */
+    --text-2xl: 1.625rem;
+    /* 26px — card values */
+    --text-3xl: 2rem;
+    /* 32px — primary KPIs */
+    --text-4xl: 2.5rem;
+    /* 40px — hero numbers */
 }
 
-/* === 1. DARK MODE (DEFAULT) — Near-black theme === */
+/* === 1. DARK MODE (DEFAULT) — Light black & silver mixture (Minimalism at its finest) === */
 body {
-    background-color: #0d0d0d;
-    /* Left glow mirrors right SideRays — balanced ambient lighting */
-    background-image:
-        radial-gradient(ellipse at 90% 0%,  rgba(59, 130, 246, 0.18) 0%, transparent 55%),
-        radial-gradient(ellipse at 0%  40%, rgba(99, 102, 241, 0.14) 0%, transparent 55%),
-        radial-gradient(ellipse at 10% 0%,  rgba(59, 130, 246, 0.10) 0%, transparent 45%);
+    background-color: #1f2127;
+    /* Silvery overhead highlight matching ambient light rays */
+    background-image: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08) 0%, transparent 75%);
     background-attachment: fixed;
-    color: #e2e8f0;
+    color: #f1f2f7;
     font-family: var(--font-ui);
     font-size: var(--text-base);
     font-weight: 400;
@@ -53,11 +58,17 @@ body {
 }
 
 /* Headings — Manrope Semi-Bold */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-ui);
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.2;
+    color: #ffffff;
 }
 
 /* All monetary values, invoice IDs, codes, table data — IBM Plex Mono */
@@ -84,21 +95,24 @@ table td {
     font-size: var(--text-xs) !important;
     font-weight: 600;
     letter-spacing: 0.06em;
+    color: #9da2b4;
 }
 
 /* Card KPI values */
 .text-3xl {
     font-family: var(--font-mono);
     font-size: var(--text-3xl) !important;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: -0.03em;
+    color: #ffffff;
 }
 
 .text-2xl {
     font-family: var(--font-mono);
     font-size: var(--text-2xl) !important;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: -0.02em;
+    color: #ffffff;
 }
 
 /* Table cells */
@@ -117,6 +131,7 @@ table th {
 table td {
     font-family: var(--font-ui);
     font-size: var(--text-sm);
+    color: #e2e4ed;
 }
 
 table td:first-child,
@@ -124,10 +139,12 @@ table td.font-mono {
     font-family: var(--font-mono);
     font-size: var(--text-sm);
     font-weight: 500;
+    color: #ffffff;
 }
 
 /* Inputs */
-input, select {
+input,
+select {
     font-family: var(--font-ui);
     font-size: var(--text-sm);
 }
@@ -140,114 +157,105 @@ input, select {
 }
 
 .glass-panel {
-    /* Dark card surface — max intensity blur */
-    background: rgba(255, 255, 255, 0.055);
-    backdrop-filter: blur(48px) saturate(200%) brightness(1.06);
-    -webkit-backdrop-filter: blur(48px) saturate(200%) brightness(1.06);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    border-top: 1px solid rgba(255, 255, 255, 0.26);
-    border-left: 1px solid rgba(255, 255, 255, 0.16);
+    /* Grounded silvery light black surface */
+    background: rgba(38, 41, 48, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 16px;
-    box-shadow:
-        0 1px 3px rgba(0, 0, 0, 0.5),
-        0 20px 60px rgba(0, 0, 0, 0.70),
-        inset 0 2px 0 rgba(255, 255, 255, 0.18),
-        inset 1px 0 0 rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 30px -10px rgba(0, 0, 0, 0.4);
 }
 
 .glass-sidebar {
-    /* Near-solid dark — stops backdrop-filter from bleeding body blue gradient in */
-    background: rgba(11, 11, 15, 0.96);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-right: 1px solid rgba(255, 255, 255, 0.06);
-
-    /* Subtle top-only blue hint matching the body ambient — everything else stays dark */
-    box-shadow:
-        4px 0 32px rgba(0, 0, 0, 0.70),
-        inset 0 0 180px -60px rgba(59, 130, 246, 0.10),
-        inset 0 160px 200px -80px rgba(59, 130, 246, 0.12);
+    /* Solid light black / silver mixture */
+    background: rgba(28, 30, 36, 0.97);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 4px 0 35px rgba(0, 0, 0, 0.35);
 }
 
 .nav-item {
-    color: #6b7280;
+    color: #9da2b4;
     border: 1px solid transparent;
     border-radius: 8px;
     letter-spacing: 0.01em;
 }
 
 .nav-item:hover {
-    background: rgba(255, 255, 255, 0.06);
-    color: #e2e8f0;
+    background: rgba(255, 255, 255, 0.07);
+    color: #ffffff;
     border-radius: 8px;
 }
 
-/* Active nav: subtle white fill like reference — NOT gold */
+/* Active nav: crisp white fill with subtle silver accent */
 .nav-active {
-    background: rgba(255, 255, 255, 0.10) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
     color: #ffffff !important;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-top: 1px solid rgba(255, 255, 255, 0.22);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
 }
 
 .btn-glass {
-    /* Blue-tinted primary action — complements the blue SideRays */
-    background: rgba(96, 165, 250, 0.15);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(96, 165, 250, 0.25);
-    border-top: 1px solid rgba(96, 165, 250, 0.45);
-    color: #bfdbfe;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 20px rgba(96, 165, 250, 0.08), inset 0 1px 0 rgba(96, 165, 250, 0.20);
+    /* Minimalist premium silver action button */
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     letter-spacing: 0.02em;
 }
 
 .btn-glass:hover {
-    background: rgba(96, 165, 250, 0.25);
-    border-color: rgba(96, 165, 250, 0.50);
-    color: #eff6ff;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.22);
+    color: #ffffff;
     transform: translateY(-1px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 28px rgba(96, 165, 250, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     cursor: pointer;
 }
 
 input,
 select {
-    background: rgba(255, 255, 255, 0.04) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    color: #e2e8f0 !important;
+    background: rgba(255, 255, 255, 0.07) !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    color: #ffffff !important;
     backdrop-filter: blur(10px);
 }
 
 input:focus,
 select:focus {
     outline: none;
-    border-color: rgba(96, 165, 250, 0.40) !important;
-    background: rgba(255, 255, 255, 0.07) !important;
-    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.10);
+    border-color: rgba(255, 255, 255, 0.45) !important;
+    background: rgba(255, 255, 255, 0.11) !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
 }
 
 option {
-    background-color: #141414;
-    color: #e2e8f0;
+    background-color: #1f2127;
+    color: #ffffff;
 }
 
 table th {
-    color: #64748b;
+    color: #9da2b4;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     background: transparent;
 }
 
 table tr {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 table tr:hover {
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.04);
 }
 
 /* === 2. LIGHT MODE — Maximum font darkness & contrast === */
@@ -261,7 +269,7 @@ body.light-mode {
         linear-gradient(135deg, #c7d9fa 0%, #eef2ff 50%, #cff4fc 100%);
     background-attachment: fixed;
     color: #020617;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 /* Headings — maximum dark */
@@ -272,65 +280,72 @@ body.light-mode h4,
 body.light-mode h5,
 body.light-mode h6 {
     font-weight: 800;
-    color: #020617;
+    color: #000000;
 }
 
 body.light-mode p,
 body.light-mode span,
 body.light-mode label {
-    font-weight: 600;
-    color: #0f172a;
+    font-weight: 700;
+    color: #020617;
 }
 
 /* Micro-labels */
 body.light-mode .text-xs {
-    font-weight: 700;
-    color: #1e293b;
+    font-weight: 800;
+    color: #020617;
     letter-spacing: 0.07em;
 }
 
 /* Secondary text — dark enough to read on frosted glass */
 body.light-mode .text-slate-400 {
-    color: #1e293b !important;
-    font-weight: 600;
-}
-
-body.light-mode .text-slate-300 {
     color: #0f172a !important;
     font-weight: 700;
 }
 
-body.light-mode .text-white {
+body.light-mode .text-slate-300 {
     color: #020617 !important;
+    font-weight: 800;
+}
+
+body.light-mode .text-slate-200 {
+    color: #020617 !important;
+    font-weight: 800;
+}
+
+body.light-mode .text-white {
+    color: #000000 !important;
+    font-weight: 800;
+    filter: none !important;
 }
 
 /* KPI numbers */
 body.light-mode .text-3xl,
 body.light-mode .text-2xl {
     font-weight: 800 !important;
-    color: #020617;
+    color: #000000;
 }
 
 /* Tables */
 body.light-mode table th {
     font-weight: 800;
-    color: #0f172a;
+    color: #020617;
     letter-spacing: 0.07em;
 }
 
 body.light-mode table td {
-    font-weight: 600;
-    color: #0f172a;
+    font-weight: 700;
+    color: #020617;
 }
 
 body.light-mode .font-bold {
     font-weight: 800 !important;
-    color: #020617;
+    color: #000000;
 }
 
 body.light-mode .font-medium {
     font-weight: 700 !important;
-    color: #0f172a;
+    color: #020617;
 }
 
 body.light-mode .glass-panel {
@@ -354,46 +369,38 @@ body.light-mode .glass-sidebar {
     box-shadow: 5px 0 30px rgba(30, 41, 59, 0.12), inset 1px 0 2px rgba(255, 255, 255, 0.8);
 }
 
-body.light-mode .text-white {
-    color: #0f172a !important;
-    filter: none !important;
-}
-
-body.light-mode .text-slate-200,
-body.light-mode .text-slate-300,
-body.light-mode .text-slate-400 {
-    color: #475569 !important;
-}
-
 body.light-mode .nav-item {
-    color: #64748b;
+    color: #0f172a;
+    font-weight: 700;
 }
 
 body.light-mode .nav-item:hover {
     background: rgba(255, 255, 255, 0.5);
-    color: #0f172a;
+    color: #000000;
+    font-weight: 800;
     border-radius: 12px;
 }
 
 body.light-mode .nav-active {
     background: rgba(14, 165, 233, 0.15) !important;
-    color: #0284c7 !important;
+    color: #0369a1 !important;
     border: 1px solid rgba(14, 165, 233, 0.3);
     border-top: 1px solid rgba(14, 165, 233, 0.5);
     box-shadow: 0 4px 15px rgba(14, 165, 233, 0.1), inset 0 1px 2px rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(12px);
     border-radius: 12px;
+    font-weight: 800;
 }
 
 body.light-mode .btn-glass {
     background: rgba(14, 165, 233, 0.15);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    color: #0284c7 !important;
+    color: #0369a1 !important;
     border: 1px solid rgba(14, 165, 233, 0.4);
     border-top: 1px solid rgba(14, 165, 233, 0.6);
     box-shadow: 0 4px 15px rgba(14, 165, 233, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.8);
-    font-weight: bold;
+    font-weight: 800;
 }
 
 body.light-mode .btn-glass:hover {
@@ -475,6 +482,7 @@ body.light-mode .bg-white\/5 {
         transform: translateY(0);
     }
 }
+
 /* === METRIC CARDS — Max Intensity Glassmorphism (By Cash / By UPI / Split) === */
 .metric-card {
     /* Maximum intensity frosted glass */
