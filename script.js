@@ -269,6 +269,23 @@ function exportDatabaseCSV() {
     document.body.removeChild(link);
 }
 
+// Expose functions to global scope for inline event handlers
+window.toggleTheme = toggleTheme;
+window.toggleSidebar = toggleSidebar;
+window.switchTab = switchTab;
+window.saveNewProduct = saveNewProduct;
+window.renderStockTable = renderStockTable;
+window.renderProductDropdown = renderProductDropdown;
+window.autoFillPrice = autoFillPrice;
+window.addToCart = addToCart;
+window.renderCartTable = renderCartTable;
+window.removeFromCart = removeFromCart;
+window.calculateCartTotals = calculateCartTotals;
+window.saveInvoice = saveInvoice;
+window.renderCustomersTable = renderCustomersTable;
+window.renderDashboard = renderDashboard;
+window.exportDatabaseCSV = exportDatabaseCSV;
+
 window.onload = function() {
     // Start in light theme by default
     document.body.classList.add('light-mode');
