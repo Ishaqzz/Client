@@ -22,23 +22,23 @@ table tr,
     --color-accent-indigo: #6366F1;
     --font-ui: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-mono: 'IBM Plex Mono', 'JetBrains Mono', 'Fira Code', monospace;
-    /* Font sizes — bumped up for readability */
-    --text-xs: 0.8125rem;
-    /* 13px — micro labels */
-    --text-sm: 0.9375rem;
-    /* 15px — body/nav */
-    --text-base: 1.0625rem;
-    /* 17px — default text */
-    --text-lg: 1.1875rem;
-    /* 19px — card labels */
-    --text-xl: 1.375rem;
-    /* 22px — secondary headings */
-    --text-2xl: 1.625rem;
-    /* 26px — card values */
-    --text-3xl: 2rem;
-    /* 32px — primary KPIs */
-    --text-4xl: 2.5rem;
-    /* 40px — hero numbers */
+    /* Font sizes — bumped up slightly for enhanced readability */
+    --text-xs: 0.875rem;
+    /* 14px — micro labels */
+    --text-sm: 1rem;
+    /* 16px — body/nav */
+    --text-base: 1.125rem;
+    /* 18px — default text */
+    --text-lg: 1.25rem;
+    /* 20px — card labels */
+    --text-xl: 1.4375rem;
+    /* 23px — secondary headings */
+    --text-2xl: 1.75rem;
+    /* 28px — card values */
+    --text-3xl: 2.125rem;
+    /* 34px — primary KPIs */
+    --text-4xl: 2.65rem;
+    /* 42px — hero numbers */
 }
 
 /* === 1. DARK MODE (DEFAULT) — Light black & silver mixture (Minimalism at its finest) === */
@@ -258,7 +258,7 @@ table tr:hover {
     background: rgba(255, 255, 255, 0.04);
 }
 
-/* === 2. LIGHT MODE — Maximum font darkness & contrast === */
+/* === 2. LIGHT MODE — Elegant soft darkness & balanced contrast === */
 body.light-mode {
     background-color: #f0f4ff;
     background-image:
@@ -268,84 +268,84 @@ body.light-mode {
         radial-gradient(ellipse at 30% 70%, rgba(139, 92, 246, 0.30) 0%, transparent 40%),
         linear-gradient(135deg, #c7d9fa 0%, #eef2ff 50%, #cff4fc 100%);
     background-attachment: fixed;
-    color: #020617;
-    font-weight: 700;
+    color: #1e293b;
+    font-weight: 500;
 }
 
-/* Headings — maximum dark */
+/* Headings — elegant dark slate */
 body.light-mode h1,
 body.light-mode h2,
 body.light-mode h3,
 body.light-mode h4,
 body.light-mode h5,
 body.light-mode h6 {
-    font-weight: 800;
-    color: #000000;
+    font-weight: 700;
+    color: #0f172a;
 }
 
 body.light-mode p,
 body.light-mode span,
 body.light-mode label {
-    font-weight: 700;
-    color: #020617;
+    font-weight: 500;
+    color: #1e293b;
 }
 
 /* Micro-labels */
 body.light-mode .text-xs {
-    font-weight: 800;
-    color: #020617;
+    font-weight: 600;
+    color: #334155;
     letter-spacing: 0.07em;
 }
 
-/* Secondary text — dark enough to read on frosted glass */
+/* Secondary text — readable and elegant on frosted glass */
 body.light-mode .text-slate-400 {
-    color: #0f172a !important;
-    font-weight: 700;
+    color: #475569 !important;
+    font-weight: 500;
 }
 
 body.light-mode .text-slate-300 {
-    color: #020617 !important;
-    font-weight: 800;
+    color: #334155 !important;
+    font-weight: 600;
 }
 
 body.light-mode .text-slate-200 {
-    color: #020617 !important;
-    font-weight: 800;
+    color: #1e293b !important;
+    font-weight: 600;
 }
 
 body.light-mode .text-white {
-    color: #000000 !important;
-    font-weight: 800;
+    color: #0f172a !important;
+    font-weight: 700;
     filter: none !important;
 }
 
 /* KPI numbers */
 body.light-mode .text-3xl,
 body.light-mode .text-2xl {
-    font-weight: 800 !important;
-    color: #000000;
+    font-weight: 700 !important;
+    color: #0f172a;
 }
 
 /* Tables */
 body.light-mode table th {
-    font-weight: 800;
-    color: #020617;
+    font-weight: 600;
+    color: #475569;
     letter-spacing: 0.07em;
 }
 
 body.light-mode table td {
-    font-weight: 700;
-    color: #020617;
+    font-weight: 500;
+    color: #1e293b;
 }
 
 body.light-mode .font-bold {
-    font-weight: 800 !important;
-    color: #000000;
+    font-weight: 700 !important;
+    color: #0f172a;
 }
 
 body.light-mode .font-medium {
-    font-weight: 700 !important;
-    color: #020617;
+    font-weight: 500 !important;
+    color: #334155;
 }
 
 body.light-mode .glass-panel {
@@ -370,14 +370,14 @@ body.light-mode .glass-sidebar {
 }
 
 body.light-mode .nav-item {
-    color: #0f172a;
-    font-weight: 700;
+    color: #334155;
+    font-weight: 500;
 }
 
 body.light-mode .nav-item:hover {
     background: rgba(255, 255, 255, 0.5);
-    color: #000000;
-    font-weight: 800;
+    color: #0f172a;
+    font-weight: 600;
     border-radius: 12px;
 }
 
@@ -389,7 +389,7 @@ body.light-mode .nav-active {
     box-shadow: 0 4px 15px rgba(14, 165, 233, 0.1), inset 0 1px 2px rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(12px);
     border-radius: 12px;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 body.light-mode .btn-glass {
@@ -400,7 +400,7 @@ body.light-mode .btn-glass {
     border: 1px solid rgba(14, 165, 233, 0.4);
     border-top: 1px solid rgba(14, 165, 233, 0.6);
     box-shadow: 0 4px 15px rgba(14, 165, 233, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.8);
-    font-weight: 800;
+    font-weight: 700;
 }
 
 body.light-mode .btn-glass:hover {
