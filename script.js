@@ -286,10 +286,16 @@ window.renderCustomersTable = renderCustomersTable;
 window.renderDashboard = renderDashboard;
 window.exportDatabaseCSV = exportDatabaseCSV;
 
-window.onload = function() {
+function initApp() {
     // Start in light theme by default
     document.body.classList.add('light-mode');
     const icon = document.getElementById('theme-icon');
     if (icon) { icon.classList.remove('fa-sun'); icon.classList.add('fa-moon'); }
     switchTab('dashboard');
-};
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initApp);
+} else {
+    initApp();
+}
