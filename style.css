@@ -1,0 +1,587 @@
+/* === GLOBAL TRANSITIONS === */
+body,
+.glass-panel,
+.glass-sidebar,
+input,
+select,
+table tr,
+.nav-item,
+.nav-active,
+.text-white,
+.text-slate-300,
+.text-slate-400 {
+    transition: background 0.4s ease, background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* === TYPOGRAPHY SYSTEM: Manrope + IBM Plex Mono === */
+:root {
+    --color-primary-bg: #0B1121;
+    --color-surface: #161E2E;
+    --color-text: #CBD5E1;
+    --color-accent-teal: #0F766E;
+    --color-accent-indigo: #6366F1;
+    --font-ui: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'IBM Plex Mono', 'JetBrains Mono', 'Fira Code', monospace;
+    /* Font sizes — bumped up for readability */
+    --text-xs:   0.8125rem;   /* 13px — micro labels */
+    --text-sm:   0.9375rem;   /* 15px — body/nav */
+    --text-base: 1.0625rem;   /* 17px — default text */
+    --text-lg:   1.1875rem;   /* 19px — card labels */
+    --text-xl:   1.375rem;    /* 22px — secondary headings */
+    --text-2xl:  1.625rem;    /* 26px — card values */
+    --text-3xl:  2rem;        /* 32px — primary KPIs */
+    --text-4xl:  2.5rem;      /* 40px — hero numbers */
+}
+
+/* === 1. DARK MODE (DEFAULT) — Near-black theme === */
+body {
+    background-color: #0d0d0d;
+    /* Left glow mirrors right SideRays — balanced ambient lighting */
+    background-image:
+        radial-gradient(ellipse at 90% 0%,  rgba(59, 130, 246, 0.18) 0%, transparent 55%),
+        radial-gradient(ellipse at 0%  40%, rgba(99, 102, 241, 0.14) 0%, transparent 55%),
+        radial-gradient(ellipse at 10% 0%,  rgba(59, 130, 246, 0.10) 0%, transparent 45%);
+    background-attachment: fixed;
+    color: #e2e8f0;
+    font-family: var(--font-ui);
+    font-size: var(--text-base);
+    font-weight: 400;
+    line-height: 1.65;
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings — Manrope Semi-Bold */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-ui);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+/* All monetary values, invoice IDs, codes, table data — IBM Plex Mono */
+.font-mono,
+[id*="dash-"],
+[id*="cart-"],
+td:first-child,
+table td {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum' 1;
+}
+
+/* Nav items — Manrope Medium */
+.nav-item {
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    font-weight: 500;
+}
+
+/* Micro-labels (uppercase tracking) */
+.text-xs {
+    font-family: var(--font-ui);
+    font-size: var(--text-xs) !important;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+}
+
+/* Card KPI values */
+.text-3xl {
+    font-family: var(--font-mono);
+    font-size: var(--text-3xl) !important;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+}
+
+.text-2xl {
+    font-family: var(--font-mono);
+    font-size: var(--text-2xl) !important;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+/* Table cells */
+table {
+    font-size: var(--text-sm);
+    font-family: var(--font-ui);
+}
+
+table th {
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+table td {
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+}
+
+table td:first-child,
+table td.font-mono {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: 500;
+}
+
+/* Inputs */
+input, select {
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+}
+
+/* Button text */
+.btn-glass {
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    font-weight: 600;
+}
+
+.glass-panel {
+    /* Dark card surface — max intensity blur */
+    background: rgba(255, 255, 255, 0.055);
+    backdrop-filter: blur(48px) saturate(200%) brightness(1.06);
+    -webkit-backdrop-filter: blur(48px) saturate(200%) brightness(1.06);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-top: 1px solid rgba(255, 255, 255, 0.26);
+    border-left: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 16px;
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.5),
+        0 20px 60px rgba(0, 0, 0, 0.70),
+        inset 0 2px 0 rgba(255, 255, 255, 0.18),
+        inset 1px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+.glass-sidebar {
+    /* Near-solid dark — stops backdrop-filter from bleeding body blue gradient in */
+    background: rgba(11, 11, 15, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+
+    /* Subtle top-only blue hint matching the body ambient — everything else stays dark */
+    box-shadow:
+        4px 0 32px rgba(0, 0, 0, 0.70),
+        inset 0 0 180px -60px rgba(59, 130, 246, 0.10),
+        inset 0 160px 200px -80px rgba(59, 130, 246, 0.12);
+}
+
+.nav-item {
+    color: #6b7280;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    letter-spacing: 0.01em;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #e2e8f0;
+    border-radius: 8px;
+}
+
+/* Active nav: subtle white fill like reference — NOT gold */
+.nav-active {
+    background: rgba(255, 255, 255, 0.10) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: 1px solid rgba(255, 255, 255, 0.22);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+}
+
+.btn-glass {
+    /* Blue-tinted primary action — complements the blue SideRays */
+    background: rgba(96, 165, 250, 0.15);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(96, 165, 250, 0.25);
+    border-top: 1px solid rgba(96, 165, 250, 0.45);
+    color: #bfdbfe;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 20px rgba(96, 165, 250, 0.08), inset 0 1px 0 rgba(96, 165, 250, 0.20);
+    letter-spacing: 0.02em;
+}
+
+.btn-glass:hover {
+    background: rgba(96, 165, 250, 0.25);
+    border-color: rgba(96, 165, 250, 0.50);
+    color: #eff6ff;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 28px rgba(96, 165, 250, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+}
+
+input,
+select {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #e2e8f0 !important;
+    backdrop-filter: blur(10px);
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: rgba(96, 165, 250, 0.40) !important;
+    background: rgba(255, 255, 255, 0.07) !important;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.10);
+}
+
+option {
+    background-color: #141414;
+    color: #e2e8f0;
+}
+
+table th {
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: transparent;
+}
+
+table tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+table tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* === 2. LIGHT MODE — Maximum font darkness & contrast === */
+body.light-mode {
+    background-color: #f0f4ff;
+    background-image:
+        radial-gradient(ellipse at 12% 25%, rgba(59, 130, 246, 0.55) 0%, transparent 50%),
+        radial-gradient(ellipse at 88% 15%, rgba(99, 102, 241, 0.50) 0%, transparent 45%),
+        radial-gradient(ellipse at 60% 85%, rgba(14, 118, 110, 0.40) 0%, transparent 50%),
+        radial-gradient(ellipse at 30% 70%, rgba(139, 92, 246, 0.30) 0%, transparent 40%),
+        linear-gradient(135deg, #c7d9fa 0%, #eef2ff 50%, #cff4fc 100%);
+    background-attachment: fixed;
+    color: #020617;
+    font-weight: 600;
+}
+
+/* Headings — maximum dark */
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode h4,
+body.light-mode h5,
+body.light-mode h6 {
+    font-weight: 800;
+    color: #020617;
+}
+
+body.light-mode p,
+body.light-mode span,
+body.light-mode label {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+/* Micro-labels */
+body.light-mode .text-xs {
+    font-weight: 700;
+    color: #1e293b;
+    letter-spacing: 0.07em;
+}
+
+/* Secondary text — dark enough to read on frosted glass */
+body.light-mode .text-slate-400 {
+    color: #1e293b !important;
+    font-weight: 600;
+}
+
+body.light-mode .text-slate-300 {
+    color: #0f172a !important;
+    font-weight: 700;
+}
+
+body.light-mode .text-white {
+    color: #020617 !important;
+}
+
+/* KPI numbers */
+body.light-mode .text-3xl,
+body.light-mode .text-2xl {
+    font-weight: 800 !important;
+    color: #020617;
+}
+
+/* Tables */
+body.light-mode table th {
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: 0.07em;
+}
+
+body.light-mode table td {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+body.light-mode .font-bold {
+    font-weight: 800 !important;
+    color: #020617;
+}
+
+body.light-mode .font-medium {
+    font-weight: 700 !important;
+    color: #0f172a;
+}
+
+body.light-mode .glass-panel {
+    background: rgba(255, 255, 255, 0.38);
+    backdrop-filter: blur(52px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(52px) saturate(180%) brightness(1.04);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-top: 1px solid rgba(255, 255, 255, 0.95);
+    border-left: 1px solid rgba(255, 255, 255, 0.82);
+    box-shadow:
+        0 12px 48px rgba(30, 41, 59, 0.18),
+        inset 0 2px 0 rgba(255, 255, 255, 1.0),
+        inset 1px 0 0 rgba(255, 255, 255, 0.70);
+}
+
+body.light-mode .glass-sidebar {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border-right: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 5px 0 30px rgba(30, 41, 59, 0.12), inset 1px 0 2px rgba(255, 255, 255, 0.8);
+}
+
+body.light-mode .text-white {
+    color: #0f172a !important;
+    filter: none !important;
+}
+
+body.light-mode .text-slate-200,
+body.light-mode .text-slate-300,
+body.light-mode .text-slate-400 {
+    color: #475569 !important;
+}
+
+body.light-mode .nav-item {
+    color: #64748b;
+}
+
+body.light-mode .nav-item:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: #0f172a;
+    border-radius: 12px;
+}
+
+body.light-mode .nav-active {
+    background: rgba(14, 165, 233, 0.15) !important;
+    color: #0284c7 !important;
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    border-top: 1px solid rgba(14, 165, 233, 0.5);
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.1), inset 0 1px 2px rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+}
+
+body.light-mode .btn-glass {
+    background: rgba(14, 165, 233, 0.15);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: #0284c7 !important;
+    border: 1px solid rgba(14, 165, 233, 0.4);
+    border-top: 1px solid rgba(14, 165, 233, 0.6);
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.8);
+    font-weight: bold;
+}
+
+body.light-mode .btn-glass:hover {
+    background: rgba(14, 165, 233, 0.25);
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+    transform: translateY(-1px);
+}
+
+body.light-mode input,
+body.light-mode select {
+    background: rgba(255, 255, 255, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    color: #0f172a !important;
+    backdrop-filter: blur(12px);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode input:focus,
+body.light-mode select:focus {
+    border-color: #0ea5e9 !important;
+    background: rgba(255, 255, 255, 0.6) !important;
+}
+
+body.light-mode option {
+    background-color: #ffffff;
+    color: #0f172a;
+}
+
+body.light-mode table th {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    color: #64748b;
+}
+
+body.light-mode table tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+body.light-mode table tr:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+body.light-mode .bg-black\/20,
+body.light-mode .bg-black\/10 {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+body.light-mode .border-white\/10,
+body.light-mode .border-white\/5 {
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light-mode .bg-white\/10 {
+    background-color: rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+body.light-mode .bg-white\/5 {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+from {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* === METRIC CARDS — Max Intensity Glassmorphism (By Cash / By UPI / Split) === */
+.metric-card {
+    /* Maximum intensity frosted glass */
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(44px) saturate(240%) brightness(1.10);
+    -webkit-backdrop-filter: blur(44px) saturate(240%) brightness(1.10);
+
+    /* Vivid frosted edge */
+    border-top: 1px solid rgba(255, 255, 255, 0.70);
+    border-left: 1px solid rgba(255, 255, 255, 0.50);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 1px solid rgba(255, 255, 255, 0.10);
+
+    /* Deep outer depth + strong inner shimmer */
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.12),
+        0 24px 60px -8px rgba(0, 0, 0, 0.55),
+        inset 0 2px 0 rgba(255, 255, 255, 0.65),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.10),
+        inset 1px 0 0 rgba(255, 255, 255, 0.25);
+
+    border-radius: 16px;
+    transition: background 0.35s ease, backdrop-filter 0.35s ease, box-shadow 0.35s ease, transform 0.25s ease;
+}
+
+.metric-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(52px) saturate(260%) brightness(1.14);
+    -webkit-backdrop-filter: blur(52px) saturate(260%) brightness(1.14);
+    box-shadow:
+        0 12px 48px -4px rgba(0, 0, 0, 0.60),
+        inset 0 2px 0 rgba(255, 255, 255, 0.80),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.15),
+        inset 1px 0 0 rgba(255, 255, 255, 0.35);
+    transform: translateY(-4px);
+}
+
+.metric-card h4,
+.metric-card .metric-amount {
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.30);
+}
+
+/* ── Light mode: strong frosted glass with vivid colour bleed ── */
+body.light-mode .metric-card {
+    background: rgba(255, 255, 255, 0.30);
+    backdrop-filter: blur(48px) saturate(220%) brightness(1.06);
+    -webkit-backdrop-filter: blur(48px) saturate(220%) brightness(1.06);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.98);
+    border-left: 1px solid rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.32);
+    border-right: 1px solid rgba(255, 255, 255, 0.38);
+
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.06),
+        0 24px 60px -8px rgba(0, 0, 0, 0.18),
+        inset 0 2px 0 rgba(255, 255, 255, 1.0),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.60),
+        inset 1px 0 0 rgba(255, 255, 255, 0.80);
+}
+
+body.light-mode .metric-card:hover {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(56px) saturate(240%) brightness(1.08);
+    -webkit-backdrop-filter: blur(56px) saturate(240%) brightness(1.08);
+    box-shadow:
+        0 12px 48px -4px rgba(0, 0, 0, 0.18),
+        inset 0 2px 0 rgba(255, 255, 255, 1.0),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.75),
+        inset 1px 0 0 rgba(255, 255, 255, 0.90);
+    transform: translateY(-4px);
+}
+
+body.light-mode .metric-card h4,
+body.light-mode .metric-card .metric-amount {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.10);
+}
+
+/* Richer blobs in light mode so frosted glass pops more */
+body.light-mode {
+    background-image:
+        radial-gradient(ellipse at 12% 25%, rgba(59, 130, 246, 0.55) 0%, transparent 50%),
+        radial-gradient(ellipse at 88% 15%, rgba(99, 102, 241, 0.50) 0%, transparent 45%),
+        radial-gradient(ellipse at 60% 85%, rgba(14, 118, 110, 0.40) 0%, transparent 50%),
+        radial-gradient(ellipse at 30% 70%, rgba(139, 92, 246, 0.30) 0%, transparent 40%),
+        linear-gradient(135deg, #c7d9fa 0%, #eef2ff 50%, #cff4fc 100%);
+    background-attachment: fixed;
+}
