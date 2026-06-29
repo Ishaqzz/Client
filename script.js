@@ -58,6 +58,14 @@ function switchTab(tabId) {
     const activeNav = document.getElementById('nav-' + tabId);
     if(activeNav) activeNav.classList.add('nav-active');
 
+    if (window.innerWidth < 768) {
+        const sidebar = document.getElementById('sidebar');
+        if (sidebar && sidebar.classList.contains('w-72')) {
+            sidebar.classList.remove('w-72');
+            sidebar.classList.add('w-0', 'opacity-0');
+        }
+    }
+
     if(tabId === 'stock') renderStockTable();
     if(tabId === 'new-bill') renderProductDropdown();
     if(tabId === 'customers') renderCustomersTable();
@@ -293,6 +301,15 @@ function initApp() {
     document.body.classList.add('light-mode');
     const icon = document.getElementById('theme-icon');
     if (icon) { icon.classList.remove('fa-sun'); icon.classList.add('fa-moon'); }
+
+    if (window.innerWidth < 768) {
+        const sidebar = document.getElementById('sidebar');
+        if (sidebar) {
+            sidebar.classList.remove('w-72');
+            sidebar.classList.add('w-0', 'opacity-0');
+        }
+    }
+
     switchTab('dashboard');
 }
 

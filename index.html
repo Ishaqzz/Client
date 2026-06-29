@@ -14,7 +14,7 @@
     <div id="lightrays-root" class="absolute top-0 left-0 w-full h-full pointer-events-none z-0"></div>
 
     <aside id="sidebar"
-        class="glass-sidebar flex flex-col justify-between z-20 h-full w-72 transition-all duration-300 ease-in-out overflow-hidden whitespace-nowrap">
+        class="glass-sidebar flex flex-col justify-between z-30 absolute md:relative top-0 left-0 h-full w-72 transition-all duration-300 ease-in-out overflow-hidden whitespace-nowrap">
         <div class="w-72">
             <div class="p-8 text-center border-b border-white/5">
                 <div
@@ -70,7 +70,7 @@
 
     <main class="flex-1 overflow-y-auto relative">
 
-        <header class="mx-8 mt-6 px-8 py-5 flex justify-between items-center z-10 glass-panel mb-8">
+        <header class="mx-4 sm:mx-8 mt-4 sm:mt-6 px-4 sm:px-8 py-4 sm:py-5 flex justify-between items-center z-10 glass-panel mb-6 sm:mb-8">
             <div class="flex items-center gap-4">
                 <button onclick="toggleSidebar()"
                     class="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition flex items-center justify-center text-slate-300">
@@ -93,7 +93,7 @@
             </div>
         </header>
 
-        <div class="px-8 pb-8 max-w-[1400px] mx-auto space-y-8">
+        <div class="px-4 sm:px-8 pb-8 max-w-[1400px] mx-auto space-y-6 sm:space-y-8">
 
             <div id="view-dashboard" class="page-view block space-y-8 fade-in">
 
@@ -188,7 +188,7 @@
                             <button onclick="switchTab('customers')"
                                 class="text-xs text-slate-300 font-bold hover:underline">View All &rarr;</button>
                         </div>
-                        <div class="glass-panel overflow-hidden p-2">
+                        <div class="glass-panel overflow-x-auto p-2">
                             <table class="w-full text-left">
                                 <thead>
                                     <tr>
@@ -260,7 +260,7 @@
                     <div>
                         <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest px-2 mb-4">Weekly
                             Performance</h3>
-                        <div class="glass-panel overflow-hidden p-2">
+                        <div class="glass-panel overflow-x-auto p-2">
                             <table class="w-full text-left">
                                 <thead>
                                     <tr>
@@ -335,7 +335,7 @@
                                 Item</button></div>
                     </div>
 
-                    <div class="overflow-hidden rounded-lg border border-white/10 mt-6 bg-black/20">
+                    <div class="overflow-x-auto rounded-lg border border-white/10 mt-6 bg-black/20">
                         <table class="w-full text-left text-sm">
                             <thead>
                                 <tr>
@@ -394,7 +394,7 @@
 
             <div id="view-customers" class="page-view hidden space-y-6">
                 <h2 class="text-3xl font-bold text-white tracking-tight drop-shadow-sm">Customer Database</h2>
-                <div class="glass-panel overflow-hidden p-2">
+                <div class="glass-panel overflow-x-auto p-2">
                     <table class="w-full text-left">
                         <thead>
                             <tr>
@@ -413,7 +413,7 @@
 
             <div id="view-products" class="page-view hidden space-y-6">
                 <h2 class="text-3xl font-bold text-white tracking-tight drop-shadow-sm">Add New Product</h2>
-                <div class="glass-panel p-8 max-w-3xl mt-6">
+                <div class="glass-panel p-4 sm:p-8 max-w-3xl mt-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm font-medium">
                         <div><label class="block text-slate-300 mb-2">Item Code</label><input type="text" id="add-code"
                                 placeholder="e.g. SHIRT-05" class="w-full p-3 rounded-lg"></div>
@@ -441,7 +441,7 @@
 
             <div id="view-stock" class="page-view hidden space-y-6">
                 <h2 class="text-3xl font-bold text-white tracking-tight drop-shadow-sm">Inventory Ledger</h2>
-                <div class="glass-panel overflow-hidden p-2">
+                <div class="glass-panel overflow-x-auto p-2">
                     <table class="w-full text-left">
                         <thead>
                             <tr>
